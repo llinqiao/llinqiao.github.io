@@ -307,7 +307,8 @@
 <li><a href="#21-中的01">2.1. 中的01</a></li>
 </ul>
 <!-- /TOC -->
-<h1 id="1-大"><a href="#1-大" class="headerlink" title="1. 大"></a>1. 大</h1><h2 id="1-1-大的01"><a href="#1-1-大的01" class="headerlink" title="1.1. 大的01"></a>1.1. 大的01</h2><h1 id="2-中"><a href="#2-中" class="headerlink" title="2. 中"></a>2. 中</h1><h2 id="2-1-中的01"><a href="#2-1-中的01" class="headerlink" title="2.1. 中的01"></a>2.1. 中的01</h2>
+<h1 id="1-大"><a href="#1-大" class="headerlink" title="1. 大"></a>1. 大</h1><h2 id="1-1-大的01"><a href="#1-1-大的01" class="headerlink" title="1.1. 大的01"></a>1.1. 大的01</h2><p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a><br><img src="http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg" alt=""></p>
+<h1 id="2-中"><a href="#2-中" class="headerlink" title="2. 中"></a>2. 中</h1><h2 id="2-1-中的01"><a href="#2-1-中的01" class="headerlink" title="2.1. 中的01"></a>2.1. 中的01</h2>
           
         
       
@@ -426,53 +427,64 @@
       
         
           
-            <p>[TOC]基本数据类型</p>
+            <!-- TOC -->
+
 <ul>
-<li><p>数字(number)</p>
-</li>
-<li><p>字符串(string)</p>
-</li>
-<li><p>布尔(boolean)</p>
-</li>
-<li><p>undefined</p>
-</li>
-<li><p>null</p>
-</li>
-<li><p>Symbol</p>
-</li>
-<li><p>bigint</p>
-</li>
-<li><p>object</p>
+<li><a href="#基本数据类型">基本数据类型</a><ul>
+<li><a href="#数据类型">数据类型</a><ul>
+<li><a href="#数字number">数字(number)</a></li>
+<li><a href="#字符串string">字符串(string)</a></li>
+<li><a href="#布尔">布尔</a></li>
+<li><a href="#null和undefined">null和undefined</a></li>
+<li><a href="#symbol">symbol</a></li>
+<li><a href="#bigint">bigint</a></li>
+<li><a href="#object">object</a></li>
+</ul>
 </li>
 </ul>
-<h3 id="基本类型"><a href="#基本类型" class="headerlink" title="基本类型"></a>基本类型</h3><h4 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h4><ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li>数字(number)</li>
+<li>字符串(string)</li>
+<li>布尔(boolean)</li>
+<li>undefined</li>
+<li>null</li>
+<li>Symbol</li>
+<li>bigint</li>
+<li>object</li>
+</ul>
+<h3 id="数字-number"><a href="#数字-number" class="headerlink" title="数字(number)"></a>数字(number)</h3><ul>
 <li>整数、浮点数</li>
-<li>Infinity,-Infinity</li>
-<li>NaN:非数值，任何有关于NaN的运算返回结果都是NaN,可以通过isNaN(value),来判断一个值是否是NaN</li>
-<li>Math对象,对数字的一些操作<h4 id="字符串-string"><a href="#字符串-string" class="headerlink" title="字符串(string)"></a>字符串(string)</h4></li>
+<li>Infinity, -Infinity</li>
+<li>NaN: 非数值，任何有关于NaN的运算返回结果都是NaN, 可以通过isNaN(value), 来判断一个值是否是NaN</li>
+<li>Math对象, 对数字的一些操作</li>
+</ul>
+<h3 id="字符串-string"><a href="#字符串-string" class="headerlink" title="字符串(string)"></a>字符串(string)</h3><ul>
 <li>String()函数可以将任何值转换为字符串</li>
 </ul>
-<h4 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h4><ul>
+<h3 id="布尔"><a href="#布尔" class="headerlink" title="布尔"></a>布尔</h3><ul>
 <li>任何字符串可以转换为true/false</li>
-<li>‘’、0、null为false,其余字符串，数字，对象为true</li>
+<li>‘’、0、null为false, 其余字符串，数字，对象为true</li>
 </ul>
-<h4 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h4><ul>
+<h3 id="null和undefined"><a href="#null和undefined" class="headerlink" title="null和undefined"></a>null和undefined</h3><ul>
 <li>俩者都表示空值</li>
-<li>null：空对象的指针,undefined:未经初始化的变量</li>
+<li>null：空对象的指针, undefined: 未经初始化的变量</li>
 </ul>
-<h4 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h4><ul>
+<h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h3><ul>
 <li>一般被用作一个私有的对象属性的键值</li>
 <li>Symbol实例是唯一且不可改变的</li>
 <li>Symbol()</li>
 </ul>
-<h4 id="bigint"><a href="#bigint" class="headerlink" title="bigint"></a>bigint</h4><ul>
+<h3 id="bigint"><a href="#bigint" class="headerlink" title="bigint"></a>bigint</h3><ul>
 <li>用来表示大于js不可表示的整数</li>
 <li>BigInt()</li>
 </ul>
-<h3 id="引用类型"><a href="#引用类型" class="headerlink" title="引用类型"></a>引用类型</h3><h4 id="object"><a href="#object" class="headerlink" title="object"></a>object</h4><ul>
+<h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3><ul>
 <li>数组，对象，函数</li>
 </ul>
-<p>[TOC]语句</p>
 
           
         
