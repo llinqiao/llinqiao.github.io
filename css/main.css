@@ -1746,6 +1746,16 @@ pre .javascript .function {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
 }
+.site-author-image:hover {
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}
 .site-author-name {
   margin: 0;
   text-align: center;
@@ -1757,12 +1767,6 @@ pre .javascript .function {
   text-align: center;
   font-size: 13px;
   color: #999;
-}
-.site-author-image:hover {
-  -webkit-transform: rotate(360deg);
-  -moz-transform: rotate(360deg);
-  -ms-transform: rotate(360deg);
-  -transform: rotate(360deg);
 }
 .site-state {
   overflow: hidden;
@@ -1832,7 +1836,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8e3ee7;
+  background: #b0fbff;
 }
 .links-of-blogroll {
   font-size: 13px;
