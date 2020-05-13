@@ -79,14 +79,14 @@
 
 
 
-<meta name="description" content="基本数据类型 数据类型 数字(number) 字符串(string) 布尔 null和undefined symbol bigint object        基本数据类型数据类型 数字(number) 字符串(string) 布尔(boolean) undefined null Symbol bigint object  数字(number) 整数、浮点数 Infinity, -Infi">
+<meta name="description" content="基本数据类型 数据类型 数字(number) 字符串(string) 布尔 null和undefined symbol bigint object   判断数据类型   语句 条件语句 循环语句   函数function 函数声明      基本数据类型数据类型 数字(number) 字符串(string) 布尔(boolean) undefined null Symbol bigint o">
 <meta property="og:type" content="article">
 <meta property="og:title" content="llinqiao blog">
-<meta property="og:url" content="http://yoursite.com/2020/05/10/My-New-Post/index.html">
+<meta property="og:url" content="http://yoursite.com/2020/05/10/js%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="llinqiao">
-<meta property="og:description" content="基本数据类型 数据类型 数字(number) 字符串(string) 布尔 null和undefined symbol bigint object        基本数据类型数据类型 数字(number) 字符串(string) 布尔(boolean) undefined null Symbol bigint object  数字(number) 整数、浮点数 Infinity, -Infi">
+<meta property="og:description" content="基本数据类型 数据类型 数字(number) 字符串(string) 布尔 null和undefined symbol bigint object   判断数据类型   语句 条件语句 循环语句   函数function 函数声明      基本数据类型数据类型 数字(number) 字符串(string) 布尔(boolean) undefined null Symbol bigint o">
 <meta property="article:published_time" content="2020-05-10T02:03:31.000Z">
-<meta property="article:modified_time" content="2020-05-12T10:02:25.629Z">
+<meta property="article:modified_time" content="2020-05-13T10:16:26.069Z">
 <meta property="article:author" content="llinqiao">
 <meta name="twitter:card" content="summary">
 
@@ -118,7 +118,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2020/05/10/My-New-Post/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/10/js基础/"/>
 
 
 
@@ -227,7 +227,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/My-New-Post/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/js%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="llinqiao">
@@ -308,6 +308,16 @@
 <li><a href="#object">object</a></li>
 </ul>
 </li>
+<li><a href="#判断数据类型">判断数据类型</a></li>
+</ul>
+</li>
+<li><a href="#语句">语句</a><ul>
+<li><a href="#条件语句">条件语句</a></li>
+<li><a href="#循环语句">循环语句</a></li>
+</ul>
+</li>
+<li><a href="#函数function">函数function</a><ul>
+<li><a href="#函数声明">函数声明</a></li>
 </ul>
 </li>
 </ul>
@@ -343,15 +353,30 @@
 <h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h3><ul>
 <li>一般被用作一个私有的对象属性的键值</li>
 <li>Symbol实例是唯一且不可改变的</li>
-<li>Symbol()</li>
+<li>Symbol()创建实例</li>
 </ul>
 <h3 id="bigint"><a href="#bigint" class="headerlink" title="bigint"></a>bigint</h3><ul>
 <li>用来表示大于js不可表示的整数</li>
-<li>BigInt()</li>
+<li>BigInt()创建实例</li>
 </ul>
 <h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3><ul>
-<li>数组，对象，函数</li>
+<li>一组数据或者功能的集合</li>
+<li>引用类型采用指针的形式声明，function，数组，对象</li>
 </ul>
+<h2 id="判断数据类型"><a href="#判断数据类型" class="headerlink" title="判断数据类型"></a>判断数据类型</h2><ul>
+<li>typeof 只能判断原始数据类型，其余都会表示为object</li>
+<li>instanceof 判断一个变量是否是一个对象的实例，判断引用类型的具体类型<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;&#125;</span><br><span class="line">a instancof <span class="built_in">Object</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>;</span><br></pre></td></tr></table></figure></li>
+<li>Object.prototype.toString.call(‘判断的对象’)，通过js对象原型属性的toString方法绑定要判断的对象，通过判断方法，判断不了自定义的类<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(arr) == <span class="string">"[object Array]"</span>;        <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(func) == <span class="string">"[object Function]"</span>;   <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+<li>constructor 判断对象相对应的构造函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line">arr.constructor <span class="built_in">Array</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line"><span class="keyword">if</span>()&#123;&#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="keyword">switch</span> (表达式)&#123;</span><br><span class="line">  <span class="keyword">case</span> 条件<span class="number">1</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">break</span>;<span class="comment">//跳出，没有当满足后者也会执行</span></span><br><span class="line">  <span class="keyword">default</span> :</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种 </span></span><br><span class="line">条件？xxx:yyy</span><br></pre></td></tr></table></figure>
+
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line"> <span class="keyword">while</span>(条件)&#123;</span><br><span class="line">   <span class="comment">// 循环体</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 至少循环一次</span></span><br><span class="line"> <span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line"> &#125;<span class="keyword">while</span>(条件)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">in</span> &#123;&#125;)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">of</span> [])&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第四种循环数组</span></span><br><span class="line">数组相关api:map、forEach、filter、reduce</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数function"><a href="#函数function" class="headerlink" title="函数function"></a>函数function</h1><h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明方式</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span> (<span class="params"></span>) </span>&#123;&#125; <span class="comment">//声明会提前</span></span><br><span class="line"><span class="keyword">let</span> name = fucntion ()&#123;&#125;</span><br><span class="line"><span class="keyword">let</span> name = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 简化函数，1.里面的this会指向外层作用域，2.不能声明构造函数，不能用call和apply绑定this,3.不能获取arguments</span></span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -502,7 +527,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字-number"><span class="nav-number">1.1.1.</span> <span class="nav-text">数字(number)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串-string"><span class="nav-number">1.1.2.</span> <span class="nav-text">字符串(string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔"><span class="nav-number">1.1.3.</span> <span class="nav-text">布尔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null和undefined"><span class="nav-number">1.1.4.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#symbol"><span class="nav-number">1.1.5.</span> <span class="nav-text">symbol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bigint"><span class="nav-number">1.1.6.</span> <span class="nav-text">bigint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object"><span class="nav-number">1.1.7.</span> <span class="nav-text">object</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基本数据类型"><span class="nav-number">1.</span> <span class="nav-text">基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">1.1.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数字-number"><span class="nav-number">1.1.1.</span> <span class="nav-text">数字(number)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串-string"><span class="nav-number">1.1.2.</span> <span class="nav-text">字符串(string)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#布尔"><span class="nav-number">1.1.3.</span> <span class="nav-text">布尔</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#null和undefined"><span class="nav-number">1.1.4.</span> <span class="nav-text">null和undefined</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#symbol"><span class="nav-number">1.1.5.</span> <span class="nav-text">symbol</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#bigint"><span class="nav-number">1.1.6.</span> <span class="nav-text">bigint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#object"><span class="nav-number">1.1.7.</span> <span class="nav-text">object</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#判断数据类型"><span class="nav-number">1.2.</span> <span class="nav-text">判断数据类型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#语句"><span class="nav-number">2.</span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#条件语句"><span class="nav-number">2.1.</span> <span class="nav-text">条件语句</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环语句"><span class="nav-number">2.2.</span> <span class="nav-text">循环语句</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数function"><span class="nav-number">3.</span> <span class="nav-text">函数function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数声明"><span class="nav-number">3.1.</span> <span class="nav-text">函数声明</span></a></li></ol></li></ol></div>
             
 
           </div>

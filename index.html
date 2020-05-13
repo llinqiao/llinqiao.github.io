@@ -308,7 +308,12 @@
 </ul>
 <!-- /TOC -->
 <h1 id="1-大"><a href="#1-大" class="headerlink" title="1. 大"></a>1. 大</h1><h2 id="1-1-大的01"><a href="#1-1-大的01" class="headerlink" title="1.1. 大的01"></a>1.1. 大的01</h2><p><a href="https://www.baidu.com" target="_blank" rel="noopener">百度</a><br><img src="http://ww4.sinaimg.cn/bmiddle/aa397b7fjw1dzplsgpdw5j.jpg" alt=""></p>
-<h1 id="2-中"><a href="#2-中" class="headerlink" title="2. 中"></a>2. 中</h1><h2 id="2-1-中的01"><a href="#2-1-中的01" class="headerlink" title="2.1. 中的01"></a>2.1. 中的01</h2>
+<h1 id="2-中"><a href="#2-中" class="headerlink" title="2. 中"></a>2. 中</h1><h2 id="2-1-中的01"><a href="#2-1-中的01" class="headerlink" title="2.1. 中的01"></a>2.1. 中的01</h2><ul>
+<li>数组返回一个新的数组不改变的api：concat，slice，map，forEach，filter，reduce</li>
+<li>对象，访问对象的属性.或[],.必须属性名称，而中括号方法里面可以是变量</li>
+<li>函数</li>
+</ul>
+
           
         
       
@@ -356,7 +361,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/My-New-Post/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/10/js%E5%9F%BA%E7%A1%80/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="llinqiao">
@@ -375,7 +380,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/10/My-New-Post/" itemprop="url">llinqiao blog</a></h1>
+                <a class="post-title-link" href="/2020/05/10/js%E5%9F%BA%E7%A1%80/" itemprop="url">llinqiao blog</a></h1>
         
 
         <div class="post-meta">
@@ -441,6 +446,16 @@
 <li><a href="#object">object</a></li>
 </ul>
 </li>
+<li><a href="#判断数据类型">判断数据类型</a></li>
+</ul>
+</li>
+<li><a href="#语句">语句</a><ul>
+<li><a href="#条件语句">条件语句</a></li>
+<li><a href="#循环语句">循环语句</a></li>
+</ul>
+</li>
+<li><a href="#函数function">函数function</a><ul>
+<li><a href="#函数声明">函数声明</a></li>
 </ul>
 </li>
 </ul>
@@ -476,15 +491,30 @@
 <h3 id="symbol"><a href="#symbol" class="headerlink" title="symbol"></a>symbol</h3><ul>
 <li>一般被用作一个私有的对象属性的键值</li>
 <li>Symbol实例是唯一且不可改变的</li>
-<li>Symbol()</li>
+<li>Symbol()创建实例</li>
 </ul>
 <h3 id="bigint"><a href="#bigint" class="headerlink" title="bigint"></a>bigint</h3><ul>
 <li>用来表示大于js不可表示的整数</li>
-<li>BigInt()</li>
+<li>BigInt()创建实例</li>
 </ul>
 <h3 id="object"><a href="#object" class="headerlink" title="object"></a>object</h3><ul>
-<li>数组，对象，函数</li>
+<li>一组数据或者功能的集合</li>
+<li>引用类型采用指针的形式声明，function，数组，对象</li>
 </ul>
+<h2 id="判断数据类型"><a href="#判断数据类型" class="headerlink" title="判断数据类型"></a>判断数据类型</h2><ul>
+<li>typeof 只能判断原始数据类型，其余都会表示为object</li>
+<li>instanceof 判断一个变量是否是一个对象的实例，判断引用类型的具体类型<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = &#123;&#125;</span><br><span class="line">a instancof <span class="built_in">Object</span> <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line">arr <span class="keyword">instanceof</span> <span class="built_in">Array</span>;</span><br></pre></td></tr></table></figure></li>
+<li>Object.prototype.toString.call(‘判断的对象’)，通过js对象原型属性的toString方法绑定要判断的对象，通过判断方法，判断不了自定义的类<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(arr) == <span class="string">"[object Array]"</span>;        <span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> func = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line"><span class="built_in">Object</span>.prototype.toString.call(func) == <span class="string">"[object Function]"</span>;   <span class="comment">//true</span></span><br></pre></td></tr></table></figure></li>
+<li>constructor 判断对象相对应的构造函数<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> arr = [];</span><br><span class="line">arr.constructor <span class="built_in">Array</span>;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h1 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h1><h2 id="条件语句"><a href="#条件语句" class="headerlink" title="条件语句"></a>条件语句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line"><span class="keyword">if</span>()&#123;&#125;<span class="keyword">else</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="keyword">switch</span> (表达式)&#123;</span><br><span class="line">  <span class="keyword">case</span> 条件<span class="number">1</span>:</span><br><span class="line">    ...</span><br><span class="line">    <span class="keyword">break</span>;<span class="comment">//跳出，没有当满足后者也会执行</span></span><br><span class="line">  <span class="keyword">default</span> :</span><br><span class="line">  ....</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种 </span></span><br><span class="line">条件？xxx:yyy</span><br></pre></td></tr></table></figure>
+
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 第一种</span></span><br><span class="line"> <span class="keyword">while</span>(条件)&#123;</span><br><span class="line">   <span class="comment">// 循环体</span></span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 至少循环一次</span></span><br><span class="line"> <span class="keyword">do</span>&#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line"> &#125;<span class="keyword">while</span>(条件)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第二种</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>;i&lt;<span class="number">10</span>;i++)&#123;</span><br><span class="line">  <span class="comment">// 循环体</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 第三种</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">in</span> &#123;&#125;)&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">let</span> item <span class="keyword">of</span> [])&#123;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第四种循环数组</span></span><br><span class="line">数组相关api:map、forEach、filter、reduce</span><br></pre></td></tr></table></figure>
+
+<h1 id="函数function"><a href="#函数function" class="headerlink" title="函数function"></a>函数function</h1><h2 id="函数声明"><a href="#函数声明" class="headerlink" title="函数声明"></a>函数声明</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明方式</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">name</span> (<span class="params"></span>) </span>&#123;&#125; <span class="comment">//声明会提前</span></span><br><span class="line"><span class="keyword">let</span> name = fucntion ()&#123;&#125;</span><br><span class="line"><span class="keyword">let</span> name = <span class="function"><span class="params">()</span> =&gt;</span> &#123;&#125;</span><br><span class="line"><span class="comment">// 简化函数，1.里面的this会指向外层作用域，2.不能声明构造函数，不能用call和apply绑定this,3.不能获取arguments</span></span><br></pre></td></tr></table></figure>
+
 
           
         
