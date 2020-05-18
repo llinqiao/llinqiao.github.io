@@ -451,7 +451,32 @@
       
         
           
-            
+            <!-- TOC -->
+
+<ul>
+<li><a href="#高阶函数">高阶函数</a><ul>
+<li><a href="#抽象">抽象</a></li>
+<li><a href="#函数作为程序的组成单元">函数作为程序的组成单元</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h1><ul>
+<li>把函数作为参数或者返回值</li>
+</ul>
+<h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><ul>
+<li>抽象的概念，把一个功能抽象成多个函数实现，隐藏底部的实现细节，从更加抽象的角度看待问题。</li>
+<li>面像函数编程：可读性和复用性都会增加，更为简单也易于避免错误<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> total = <span class="number">0</span>, count = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">while</span> (count &lt;= <span class="number">10</span>) &#123;</span><br><span class="line">  total += count;</span><br><span class="line">  count += <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(total);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(sum(range(<span class="number">1</span>, <span class="number">10</span>)));</span><br></pre></td></tr></table></figure></li>
+<li>函数的编写也应尽可能的复用出来<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 普通的函数,重复打印</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">repeatLog</span>(<span class="params">n</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 把需要重复做的事也抽象出来</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">repeat</span>(<span class="params">n, action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">    action(i);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">repeat(<span class="number">3</span>, <span class="built_in">console</span>.log);</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h2 id="函数作为程序的组成单元"><a href="#函数作为程序的组成单元" class="headerlink" title="函数作为程序的组成单元"></a>函数作为程序的组成单元</h2><ul>
+<li>一个程序可以划分成很多个功能，每个功能可以通过一个或几个函数组合来实现</li>
+<li>程序编写的时候首先考虑哪些地方可以抽成函数，甚至内部或者外部可复用的函数，函数拆出来之后，再把函数抽象出来一写可以多变的地方。</li>
+<li>尽量让程序在几个函数调用中就可以实现(也就是地道的js)</li>
+</ul>
+
           
         
       
@@ -570,7 +595,7 @@
       
         
           
-            <h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><!-- TOC -->
+            <!-- TOC -->
 
 <ul>
 <li><a href="#基本数据类型">基本数据类型</a><ul>
@@ -596,7 +621,6 @@
 <li><a href="#函数声明">函数声明</a></li>
 <li><a href="#闭包">闭包</a></li>
 <li><a href="#递归">递归</a></li>
-<li><a href="#高阶函数">高阶函数</a></li>
 </ul>
 </li>
 <li><a href="#数据格式">数据格式</a><ul>
@@ -610,7 +634,7 @@
 </ul>
 <!-- /TOC -->
 
-<ul>
+<h1 id="基本数据类型"><a href="#基本数据类型" class="headerlink" title="基本数据类型"></a>基本数据类型</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
 <li>数字(number)</li>
 <li>字符串(string)</li>
 <li>布尔(boolean)</li>
@@ -682,10 +706,6 @@
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">fucntion power(base, exponent) &#123;</span><br><span class="line">    <span class="keyword">if</span> (exponent === <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        rerun power(base, exponent - <span class="number">1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="高阶函数"><a href="#高阶函数" class="headerlink" title="高阶函数"></a>高阶函数</h2><ul>
-<li>抽象的概念，把一个功能抽象成多个函数实现，这样可读性和复用性都会增加，面像函数编程</li>
-<li>函数作为函数参数或者返回值。组合函数编程，让代码质量更高</li>
-</ul>
 <h1 id="数据格式"><a href="#数据格式" class="headerlink" title="数据格式"></a>数据格式</h1><h2 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h2><ul>
 <li>访问对象的属性. 或[], . 必须属性名称，而中括号方法里面可以是变量</li>
 <li>对象的方法：当属性的值是函数时</li>
